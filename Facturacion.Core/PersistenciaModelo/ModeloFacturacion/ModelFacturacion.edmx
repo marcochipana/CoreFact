@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_facturacion_model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="clin_cliente_id" />
+          </Key>
+          <Property Name="clin_cliente_id" Type="int" Nullable="false" />
+          <Property Name="clvc_nombre" Type="varchar" MaxLength="45" />
+          <Property Name="clvc_apellido" Type="varchar" MaxLength="45" />
+          <Property Name="clvc_nit" Type="varchar" MaxLength="12" />
+          <Property Name="clvc_direccion" Type="varchar" MaxLength="45" />
+          <Property Name="clvc_email" Type="varchar" MaxLength="45" />
+          <Property Name="cldt_fecha_nac" Type="datetime" Precision="0" />
+          <Property Name="cldt_fecha_registro" Type="datetime" Precision="0" />
+          <Property Name="clvc_user_registro" Type="varchar" MaxLength="30" />
+          <Property Name="clvc_fecha_modif" Type="datetime" Precision="0" />
+          <Property Name="clvc_user_modif" Type="varchar" MaxLength="30" />
+          <Property Name="clbt_activo" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="embi_empresa_id" />
+          </Key>
+          <Property Name="embi_empresa_id" Type="bigint" Nullable="false" />
+          <Property Name="emvc_nombre_empresa" Type="varchar" MaxLength="150" />
+          <Property Name="emvc_sucursal_empresa" Type="varchar" MaxLength="45" />
+          <Property Name="emvc_nit_empresa" Type="varchar" MaxLength="15" />
+          <Property Name="emvc_direccion_empresa" Type="varchar" MaxLength="200" />
+          <Property Name="emvc_telefono_empresa" Type="varchar" MaxLength="100" />
+          <Property Name="emvc_cel_empresa" Type="varchar" MaxLength="45" />
+          <Property Name="lxvc_ciudad" Type="varchar" MaxLength="10" />
+          <Property Name="emdt_fecha_registro" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="emvc_user_registro" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="emdt_fecha_modif" Type="datetime" Precision="0" />
+          <Property Name="emvc_user_modif" Type="varchar" MaxLength="30" />
+          <Property Name="embt_activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="formularios">
+          <Key>
+            <PropertyRef Name="foin_formulario_id" />
+          </Key>
+          <Property Name="foin_formulario_id" Type="int" Nullable="false" />
+          <Property Name="roin_rol_id" Type="int" />
+          <Property Name="fovc_nombre_form" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fovc_url" Type="varchar" MaxLength="100" />
+          <Property Name="fobt_edit" Type="bit" />
+          <Property Name="fobt_delete" Type="bit" />
+          <Property Name="fobt_view" Type="bit" />
+          <Property Name="fodt_fecha_insert" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="fovc_user_insert" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fodt_fecha_update" Type="datetime" Precision="0" />
+          <Property Name="fovc_user_update" Type="varchar" MaxLength="30" />
+          <Property Name="fobt_is_hidden" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="prin_producto_id" />
+          </Key>
+          <Property Name="prin_producto_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cain_categoria_id" Type="int" />
+          <Property Name="prvc_nombre_producto" Type="varchar" MaxLength="150" />
+          <Property Name="prdc_precio_producto" Type="decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="roin_rol_id" />
+          </Key>
+          <Property Name="roin_rol_id" Type="int" Nullable="false" />
+          <Property Name="rovc_nombre_rol" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="rodt_fecha_insert" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="rovc_user_insert" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rodt_fecha_modif" Type="datetime" Precision="0" />
+          <Property Name="rovc_user_modif" Type="varchar" MaxLength="30" />
+          <Property Name="robt_id_hidden" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="usvc_usuario_id" />
+          </Key>
+          <Property Name="usvc_usuario_id" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="usvc_nombre_usuario" Type="varchar" MaxLength="100" />
+          <Property Name="usvc_contraseña_usuario" Type="varchar" MaxLength="500" />
+          <Property Name="usdt_fecha_registro" Type="datetime" Precision="0" />
+          <Property Name="usvc_user_registro" Type="varchar" MaxLength="30" />
+          <Property Name="usdt_fecha_modif" Type="datetime" Precision="0" />
+          <Property Name="usvc_user_modif" Type="varchar" MaxLength="30" />
+          <Property Name="usbt_activo" Type="bit" />
+        </EntityType>
+        <Function Name="SPWB_GetListProductos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="db_facturacion">
+          <Parameter Name="con" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="db_facturacion_modelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="db_facturacion" store:Type="Tables" />
+          <EntitySet Name="empresa" EntityType="Self.empresa" Schema="db_facturacion" store:Type="Tables" />
+          <EntitySet Name="formularios" EntityType="Self.formularios" Schema="db_facturacion" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="db_facturacion" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="db_facturacion" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="db_facturacion" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_facturacion_model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="db_facturacion_entities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="producto" EntityType="db_facturacion_model.producto" />
+          <FunctionImport Name="SPWB_GetListProductos" EntitySet="producto" ReturnType="Collection(db_facturacion_model.producto)" >
+          <Parameter Name="con" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="cliente" EntityType="db_facturacion_model.cliente" />
+          <EntitySet Name="empresa" EntityType="db_facturacion_model.empresa" />
+          <EntitySet Name="formularios" EntityType="db_facturacion_model.formularios" />
+          <EntitySet Name="roles" EntityType="db_facturacion_model.roles" />
+          <EntitySet Name="usuarios" EntityType="db_facturacion_model.usuarios" />
+        </EntityContainer>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="prin_producto_id" />
+          </Key>
+          <Property Name="prin_producto_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cain_categoria_id" Type="Int32" />
+          <Property Name="prvc_nombre_producto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="prdc_precio_producto" Type="Decimal" />
+        </EntityType>
+        <ComplexType Name="SPWB_GetListProductos_Result" />
+        <ComplexType Name="CREDENCIALES" >
+          <Property Type="String" Name="IP" Nullable="false" />
+          <Property Type="String" Name="USUARIO" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="clin_cliente_id" />
+          </Key>
+          <Property Name="clin_cliente_id" Type="Int32" Nullable="false" />
+          <Property Name="clvc_nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="clvc_apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="clvc_nit" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="clvc_direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="clvc_email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="cldt_fecha_nac" Type="DateTime" />
+          <Property Name="cldt_fecha_registro" Type="DateTime" />
+          <Property Name="clvc_user_registro" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="clvc_fecha_modif" Type="DateTime" />
+          <Property Name="clvc_user_modif" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="clbt_activo" Type="SByte" />
+        </EntityType>
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="embi_empresa_id" />
+          </Key>
+          <Property Name="embi_empresa_id" Type="Int64" Nullable="false" />
+          <Property Name="emvc_nombre_empresa" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="emvc_sucursal_empresa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="emvc_nit_empresa" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="emvc_direccion_empresa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="emvc_telefono_empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="emvc_cel_empresa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lxvc_ciudad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="emdt_fecha_registro" Type="DateTime" Nullable="false" />
+          <Property Name="emvc_user_registro" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emdt_fecha_modif" Type="DateTime" />
+          <Property Name="emvc_user_modif" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="embt_activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="formularios">
+          <Key>
+            <PropertyRef Name="foin_formulario_id" />
+          </Key>
+          <Property Name="foin_formulario_id" Type="Int32" Nullable="false" />
+          <Property Name="roin_rol_id" Type="Int32" />
+          <Property Name="fovc_nombre_form" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fovc_url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fobt_edit" Type="Boolean" />
+          <Property Name="fobt_delete" Type="Boolean" />
+          <Property Name="fobt_view" Type="Boolean" />
+          <Property Name="fodt_fecha_insert" Type="DateTime" Nullable="false" />
+          <Property Name="fovc_user_insert" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fodt_fecha_update" Type="DateTime" />
+          <Property Name="fovc_user_update" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fobt_is_hidden" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="roin_rol_id" />
+          </Key>
+          <Property Name="roin_rol_id" Type="Int32" Nullable="false" />
+          <Property Name="rovc_nombre_rol" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="rodt_fecha_insert" Type="DateTime" Nullable="false" />
+          <Property Name="rovc_user_insert" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="rodt_fecha_modif" Type="DateTime" />
+          <Property Name="rovc_user_modif" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="robt_id_hidden" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="usvc_usuario_id" />
+          </Key>
+          <Property Name="usvc_usuario_id" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="usvc_nombre_usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usvc_contraseña_usuario" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="usdt_fecha_registro" Type="DateTime" />
+          <Property Name="usvc_user_registro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="usdt_fecha_modif" Type="DateTime" />
+          <Property Name="usvc_user_modif" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="usbt_activo" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_facturacion_modelStoreContainer" CdmEntityContainer="db_facturacion_entities" >
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="db_facturacion_model.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="prdc_precio_producto" ColumnName="prdc_precio_producto" />
+                <ScalarProperty Name="prvc_nombre_producto" ColumnName="prvc_nombre_producto" />
+                <ScalarProperty Name="cain_categoria_id" ColumnName="cain_categoria_id" />
+                <ScalarProperty Name="prin_producto_id" ColumnName="prin_producto_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPWB_GetListProductos" FunctionName="db_facturacion_model.Store.SPWB_GetListProductos">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="db_facturacion_model.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="clbt_activo" ColumnName="clbt_activo" />
+                <ScalarProperty Name="clvc_user_modif" ColumnName="clvc_user_modif" />
+                <ScalarProperty Name="clvc_fecha_modif" ColumnName="clvc_fecha_modif" />
+                <ScalarProperty Name="clvc_user_registro" ColumnName="clvc_user_registro" />
+                <ScalarProperty Name="cldt_fecha_registro" ColumnName="cldt_fecha_registro" />
+                <ScalarProperty Name="cldt_fecha_nac" ColumnName="cldt_fecha_nac" />
+                <ScalarProperty Name="clvc_email" ColumnName="clvc_email" />
+                <ScalarProperty Name="clvc_direccion" ColumnName="clvc_direccion" />
+                <ScalarProperty Name="clvc_nit" ColumnName="clvc_nit" />
+                <ScalarProperty Name="clvc_apellido" ColumnName="clvc_apellido" />
+                <ScalarProperty Name="clvc_nombre" ColumnName="clvc_nombre" />
+                <ScalarProperty Name="clin_cliente_id" ColumnName="clin_cliente_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empresa">
+            <EntityTypeMapping TypeName="db_facturacion_model.empresa">
+              <MappingFragment StoreEntitySet="empresa">
+                <ScalarProperty Name="embt_activo" ColumnName="embt_activo" />
+                <ScalarProperty Name="emvc_user_modif" ColumnName="emvc_user_modif" />
+                <ScalarProperty Name="emdt_fecha_modif" ColumnName="emdt_fecha_modif" />
+                <ScalarProperty Name="emvc_user_registro" ColumnName="emvc_user_registro" />
+                <ScalarProperty Name="emdt_fecha_registro" ColumnName="emdt_fecha_registro" />
+                <ScalarProperty Name="lxvc_ciudad" ColumnName="lxvc_ciudad" />
+                <ScalarProperty Name="emvc_cel_empresa" ColumnName="emvc_cel_empresa" />
+                <ScalarProperty Name="emvc_telefono_empresa" ColumnName="emvc_telefono_empresa" />
+                <ScalarProperty Name="emvc_direccion_empresa" ColumnName="emvc_direccion_empresa" />
+                <ScalarProperty Name="emvc_nit_empresa" ColumnName="emvc_nit_empresa" />
+                <ScalarProperty Name="emvc_sucursal_empresa" ColumnName="emvc_sucursal_empresa" />
+                <ScalarProperty Name="emvc_nombre_empresa" ColumnName="emvc_nombre_empresa" />
+                <ScalarProperty Name="embi_empresa_id" ColumnName="embi_empresa_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="formularios">
+            <EntityTypeMapping TypeName="db_facturacion_model.formularios">
+              <MappingFragment StoreEntitySet="formularios">
+                <ScalarProperty Name="fobt_is_hidden" ColumnName="fobt_is_hidden" />
+                <ScalarProperty Name="fovc_user_update" ColumnName="fovc_user_update" />
+                <ScalarProperty Name="fodt_fecha_update" ColumnName="fodt_fecha_update" />
+                <ScalarProperty Name="fovc_user_insert" ColumnName="fovc_user_insert" />
+                <ScalarProperty Name="fodt_fecha_insert" ColumnName="fodt_fecha_insert" />
+                <ScalarProperty Name="fobt_view" ColumnName="fobt_view" />
+                <ScalarProperty Name="fobt_delete" ColumnName="fobt_delete" />
+                <ScalarProperty Name="fobt_edit" ColumnName="fobt_edit" />
+                <ScalarProperty Name="fovc_url" ColumnName="fovc_url" />
+                <ScalarProperty Name="fovc_nombre_form" ColumnName="fovc_nombre_form" />
+                <ScalarProperty Name="roin_rol_id" ColumnName="roin_rol_id" />
+                <ScalarProperty Name="foin_formulario_id" ColumnName="foin_formulario_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="db_facturacion_model.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="robt_id_hidden" ColumnName="robt_id_hidden" />
+                <ScalarProperty Name="rovc_user_modif" ColumnName="rovc_user_modif" />
+                <ScalarProperty Name="rodt_fecha_modif" ColumnName="rodt_fecha_modif" />
+                <ScalarProperty Name="rovc_user_insert" ColumnName="rovc_user_insert" />
+                <ScalarProperty Name="rodt_fecha_insert" ColumnName="rodt_fecha_insert" />
+                <ScalarProperty Name="rovc_nombre_rol" ColumnName="rovc_nombre_rol" />
+                <ScalarProperty Name="roin_rol_id" ColumnName="roin_rol_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="db_facturacion_model.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="usbt_activo" ColumnName="usbt_activo" />
+                <ScalarProperty Name="usvc_user_modif" ColumnName="usvc_user_modif" />
+                <ScalarProperty Name="usdt_fecha_modif" ColumnName="usdt_fecha_modif" />
+                <ScalarProperty Name="usvc_user_registro" ColumnName="usvc_user_registro" />
+                <ScalarProperty Name="usdt_fecha_registro" ColumnName="usdt_fecha_registro" />
+                <ScalarProperty Name="usvc_contraseña_usuario" ColumnName="usvc_contraseña_usuario" />
+                <ScalarProperty Name="usvc_nombre_usuario" ColumnName="usvc_nombre_usuario" />
+                <ScalarProperty Name="usvc_usuario_id" ColumnName="usvc_usuario_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

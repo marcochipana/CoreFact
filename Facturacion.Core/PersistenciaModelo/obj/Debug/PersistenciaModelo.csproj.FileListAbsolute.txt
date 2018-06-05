@@ -1,0 +1,11 @@
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\PersistenciaModelo.dll.config
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\PersistenciaModelo.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\PersistenciaModelo.pdb
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\DominioEntidades.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\EntityFramework.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\DominioEntidades.pdb
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\bin\Debug\EntityFramework.xml
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\obj\Debug\PersistenciaModelo.csprojResolveAssemblyReference.cache
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\obj\Debug\PersistenciaModelo.csproj.CoreCompileInputs.cache
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\obj\Debug\PersistenciaModelo.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\PersistenciaModelo\obj\Debug\PersistenciaModelo.pdb

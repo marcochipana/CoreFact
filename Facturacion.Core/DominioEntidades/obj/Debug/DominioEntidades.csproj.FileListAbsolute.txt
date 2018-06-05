@@ -1,0 +1,6 @@
+D:\DEV\Facturacion\Core\Facturacion.Core\DominioEntidades\bin\Debug\DominioEntidades.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\DominioEntidades\bin\Debug\DominioEntidades.pdb
+D:\DEV\Facturacion\Core\Facturacion.Core\DominioEntidades\obj\Debug\DominioEntidades.csprojResolveAssemblyReference.cache
+D:\DEV\Facturacion\Core\Facturacion.Core\DominioEntidades\obj\Debug\DominioEntidades.csproj.CoreCompileInputs.cache
+D:\DEV\Facturacion\Core\Facturacion.Core\DominioEntidades\obj\Debug\DominioEntidades.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\DominioEntidades\obj\Debug\DominioEntidades.pdb

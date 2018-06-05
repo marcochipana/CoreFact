@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e35bf2c22bc5450fbb771a5989d8c8d1" Name="Diagram1" >
+        <EntityTypeShape EntityType="db_facturacion_model.producto" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_facturacion_model.cliente" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="db_facturacion_model.empresa" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="db_facturacion_model.formularios" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_facturacion_model.roles" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="db_facturacion_model.usuarios" Width="1.5" PointX="4.75" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

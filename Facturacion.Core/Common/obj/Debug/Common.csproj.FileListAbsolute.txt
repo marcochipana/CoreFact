@@ -1,0 +1,9 @@
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\bin\Debug\Common.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\bin\Debug\Common.pdb
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\bin\Debug\DominioEntidades.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\bin\Debug\log4net.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\bin\Debug\DominioEntidades.pdb
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\obj\Debug\Common.dll
+D:\DEV\Facturacion\Core\Facturacion.Core\Common\obj\Debug\Common.pdb
